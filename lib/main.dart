@@ -5,10 +5,11 @@ import 'package:layout/myapp2.dart';
 import 'package:layout/reListViewAdvance.dart';
 import 'package:layout/remyapp2.dart';
 import 'package:layout/store.dart';
+import 'package:layout/store2.dart';
 import 'package:layout/test.dart';
 import 'Login.dart';
 void main() {
-  runApp(StoreApp());
+  runApp(StoreApp2());
 }
 //BG1: Layout
 class MyApp extends StatelessWidget {

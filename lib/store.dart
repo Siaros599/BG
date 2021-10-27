@@ -57,24 +57,24 @@ class _StoreState extends State<Store> {
                           fontSize: 30,color: Colors.blue[900]),
                       ),
                       Text(
-                        "Category: ${p.category}",
+                        "- Category: ${p.category}",
                         style: TextStyle(
                           fontSize: 20,color: Colors.black),
                       ),
                       Text(
-                        "Description: ${p.description}",
+                        "- Description: ${p.description}",
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                       Text(
-                        "Price: ${p.price}",
+                        "- Price: ${p.price}",
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                       Text(
-                        "Rate: ${p.rate} stars",
+                        "- Rate: ${p.rate} stars",
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                       Text(
-                        "Count: ${p.count}",
+                        "- Count: ${p.count}",
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                       ElevatedButton(
@@ -84,12 +84,15 @@ class _StoreState extends State<Store> {
                             builder: (context){
                               return AlertDialog(
                                 content: Form(
+                                  key:fkey,
                                   child: TextFormField(
-                                    keyboardType: TextInputType.number,
                                     controller: txtcount,
                                     validator: (value){
+                                      RegExp regex = new RegExp(r'\d+$');
                                       if(value==null||value.isEmpty)
                                         return "Cannot empty";
+                                      else if (!regex.hasMatch(value))
+                                          return "quantity invalid";
                                       else
                                         return null;
                                     },
@@ -105,10 +108,11 @@ class _StoreState extends State<Store> {
                                         },
                                         child: Text('Cancel'),
                                       ),
-                                  TextButton(
+                                  ElevatedButton(
                                     onPressed: (){
                                       if(fkey.currentState!.validate())
                                         Navigator.pop(context,'OK');
+                                      else print("Not OK");
                                     }, 
                                     child: Text("OK")
                                   ),

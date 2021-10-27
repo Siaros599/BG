@@ -28,7 +28,6 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
           onPressed: (){
@@ -41,6 +40,7 @@ class _RegisterState extends State<Register> {
         title: Text("Register"),
       ),
       body: SingleChildScrollView(
+        reverse: true,
         child: Form(
           key: fkey,
           child: Column(
