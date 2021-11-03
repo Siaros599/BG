@@ -9,7 +9,7 @@ import 'package:layout/store2.dart';
 import 'package:layout/test.dart';
 import 'Login.dart';
 void main() {
-  runApp(StoreApp2());
+  runApp(StoreApp());
 }
 //BG1: Layout
 class MyApp extends StatelessWidget {
